@@ -85,10 +85,10 @@ func New(redisURI string, min, max uint) (*Raus, error) {
 	if err != nil {
 		return nil, err
 	}
-
+    u,_ :=  uuid.NewV4()
 	return &Raus{
 		rand:          rand.New(rand.NewSource(s)),
-		uuid:          uuid.NewV4().String(),
+		uuid:          u.String(),
 		min:           min,
 		max:           max,
 		redisOptions:  op,
